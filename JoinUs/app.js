@@ -12,14 +12,17 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
+app.set('view engine', 'ejs');
 
 app.get('/', function(req, res) {
     // Find the count of users in DB
     var q = "SELECT COUNT(*) count FROM users";
     connection.query(q, function(err, results) {
         if (err) throw err;
-        var msg = "We have " + results[0].count + " users in our db!";
-        res.send(msg);
+        var count = results[0].count;
+        res.render('home', { count: count });
+        // var msg = "We have " + results[0].count + " users in our db!";
+        // res.send(msg);
     });
     // console.log(req);
     // res.send('Hello World!');
