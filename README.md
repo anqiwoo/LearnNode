@@ -1,2 +1,3 @@
 # LearnNode
-"Join us", a email list web application based on Node and MySQL.
+
+"Join us", an email list web application based on Node and MySQL.
